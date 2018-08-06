@@ -1,0 +1,14 @@
+FLAGS = -g -O3 -Wall
+OBJ = mycp.o
+
+exe: mycp
+	./mycp test.txt test1.txt
+
+mycp: $(OBJ)
+	gcc -o $@ $^ $(FLAGS)
+
+mycp.o: mycp.c
+	gcc -c $< $(FLAGS)
+
+clean:
+	rm -f mycp $(OBJ)

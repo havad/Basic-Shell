@@ -1,0 +1,20 @@
+FLAGS = -g -O3 -Wall
+OBJ = mysh.o mycd.o pwd.o
+
+exe: mysh
+	./mysh
+
+mysh: $(OBJ)
+	gcc -o $@ $^ $(FLAGS)
+
+mysh.o: mysh.c
+	gcc -c $< $(FLAGS)
+
+mycd.o: mycd.c mycd.h
+	gcc -c $< $(FLAGS)
+
+pwd.o: pwd.c pwd.h
+	gcc -c $< $(FLAGS)
+
+clean:
+	rm -f mysh $(OBJ)

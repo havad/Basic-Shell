@@ -1,0 +1,14 @@
+FLAGS = -g -O3 -Wall
+OBJ = mycat.o
+
+exe: mycat
+	./mycat test.txt
+
+mycat: $(OBJ)
+	gcc -o $@ $^ $(FLAGS)
+
+mycat.o: mycat.c
+	gcc -c $< $(FLAGS)
+
+clean:
+	rm -f mycat $(OBJ)

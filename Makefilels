@@ -1,0 +1,14 @@
+FLAGS = -g -O3 -Wall
+OBJ = myls.o
+
+exe: myls
+	./myls
+
+myls: $(OBJ)
+	gcc -o $@ $^ $(FLAGS)
+
+myls.o: myls.c
+	gcc -c $< $(FLAGS)
+
+clean:
+	rm -f myls $(OBJ)
